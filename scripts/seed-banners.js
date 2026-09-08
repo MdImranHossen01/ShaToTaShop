@@ -42,59 +42,62 @@ const BannerSchema = new mongoose.Schema(
 
 const Banner = mongoose.models.Banner || mongoose.model('Banner', BannerSchema);
 
+const primaryLink = 'https://shatotashop-jia.vercel.app/shop';
+const secondaryLink = 'https://wa.me/8801581680540';
+
 const banners = [
   {
-    title: 'Elevate Your Daily Lifestyle & Fashion',
-    image: '/assets/images/Banner/fashion-lifestyle-banner.webp',
-    link: 'https://www.bhootbazar.com/shop',
+    title: 'Step Into Style & Innovation',
+    image: '/assets/images/Banner/Step Into Style & Innovation.webp',
+    link: primaryLink,
     primaryBtnText: 'Shop Now',
-    primaryBtnLink: 'https://www.bhootbazar.com/shop',
+    primaryBtnLink: primaryLink,
     secondaryBtnText: 'Contact Us',
-    secondaryBtnLink: 'https://wa.me/8801521100827',
+    secondaryBtnLink: secondaryLink,
     order: 1,
     isActive: true,
   },
   {
-    title: 'Next-Gen Smart Electronics & Security',
-    image: '/assets/images/Banner/electronics-security-banner.webp',
-    link: 'https://www.bhootbazar.com/shop',
+    title: 'Next-Gen Audio Experience',
+    image: '/assets/images/Banner/Next-Gen Audio Experience.webp',
+    link: primaryLink,
     primaryBtnText: 'Shop Now',
-    primaryBtnLink: 'https://www.bhootbazar.com/shop',
+    primaryBtnLink: primaryLink,
     secondaryBtnText: 'Contact Us',
-    secondaryBtnLink: 'https://wa.me/8801521100827',
+    secondaryBtnLink: secondaryLink,
     order: 2,
     isActive: true,
   },
   {
-    title: 'Pure Botanical Skincare & Wellness',
-    image: '/assets/images/Banner/beauty-wellness-banner.webp',
-    link: 'https://www.bhootbazar.com/shop',
+    title: 'Premium Wearables & Accessories',
+    image: '/assets/images/Banner/Premium Wearables & Accessories.webp',
+    link: primaryLink,
     primaryBtnText: 'Shop Now',
-    primaryBtnLink: 'https://www.bhootbazar.com/shop',
+    primaryBtnLink: primaryLink,
     secondaryBtnText: 'Contact Us',
-    secondaryBtnLink: 'https://wa.me/8801521100827',
+    secondaryBtnLink: secondaryLink,
     order: 3,
     isActive: true,
   },
   {
-    title: 'Farm-Fresh Grocery & Artisanal Bakery',
-    image: '/assets/images/Banner/grocery-bakery-banner.webp',
-    link: 'https://www.bhootbazar.com/shop',
+    title: 'Smart Tech, Smarter Living',
+    image: '/assets/images/Banner/Smart Tech Smarter Living.webp',
+    link: primaryLink,
     primaryBtnText: 'Shop Now',
-    primaryBtnLink: 'https://www.bhootbazar.com/shop',
+    primaryBtnLink: primaryLink,
     secondaryBtnText: 'Contact Us',
-    secondaryBtnLink: 'https://wa.me/8801521100827',
+    secondaryBtnLink: secondaryLink,
     order: 4,
     isActive: true,
   },
   {
-    title: 'Nurture Your Mind & Living Space',
-    image: '/assets/images/Banner/books-tree-banner.webp',
-    link: 'https://www.bhootbazar.com/shop',
+    title: 'Urban Fashion Collection',
+    image: '/assets/images/Banner/Urban Fashion Collection.webp',
+    link: primaryLink,
     primaryBtnText: 'Shop Now',
-    primaryBtnLink: 'https://www.bhootbazar.com/shop',
+    primaryBtnLink: primaryLink,
     secondaryBtnText: 'Contact Us',
-    secondaryBtnLink: 'https://wa.me/8801521100827',
+    secondaryBtnLink: secondaryLink,
     order: 5,
     isActive: true,
   },
@@ -113,7 +116,7 @@ async function seed() {
     const insertResult = await Banner.insertMany(banners);
     console.log(`🎉 Seeded ${insertResult.length} banners successfully:`);
     insertResult.forEach((b, i) => {
-      console.log(`[Banner ${i + 1}] Title: "${b.title}", Image: "${b.image}"`);
+      console.log(`[Banner ${i + 1}] Title: "${b.title}", Image: "${b.image}", Primary: "${b.primaryBtnLink}", Secondary: "${b.secondaryBtnLink}"`);
     });
 
   } catch (error) {

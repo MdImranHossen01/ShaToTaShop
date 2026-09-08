@@ -38,33 +38,33 @@ const Category = mongoose.models.Category || mongoose.model('Category', Category
 
 const categoriesToSeed = [
   {
-    name: 'Fashion & Lifestyle',
-    slug: 'fashion-lifestyle',
-    image: '/assets/images/cagetory/fashion-lifestyle.webp',
+    name: 'Smart Wearables',
+    slug: 'smart-wearables',
+    image: '/assets/images/cagetory/Smart Wearables.webp',
     isActive: true,
   },
   {
-    name: 'Health & Beauty Care',
-    slug: 'health-beauty-care',
-    image: '/assets/images/cagetory/health-beauty-care.webp',
+    name: 'Audio & Sound',
+    slug: 'audio-sound',
+    image: '/assets/images/cagetory/Audio & Sound.webp',
     isActive: true,
   },
   {
-    name: 'Books & Tree',
-    slug: 'books-tree',
-    image: '/assets/images/cagetory/books-tree.webp',
+    name: 'Smartphones & Tablets',
+    slug: 'smartphones-tablets',
+    image: '/assets/images/cagetory/Smartphones & Tablets.webp',
     isActive: true,
   },
   {
-    name: 'Electric & Electronics Security',
-    slug: 'electric-electronics-security',
-    image: '/assets/images/cagetory/electric-electronics-security.webp',
+    name: 'Trendy Fashion Wear',
+    slug: 'trendy-fashion-wear',
+    image: '/assets/images/cagetory/Trendy Fashion Wear.webp',
     isActive: true,
   },
   {
-    name: 'Grocery Food & Bakery',
-    slug: 'grocery-food-bakery',
-    image: '/assets/images/cagetory/grocery-food-bakery.webp',
+    name: 'Fashion Accessories',
+    slug: 'fashion-accessories',
+    image: '/assets/images/cagetory/Fashion Accessories.webp',
     isActive: true,
   },
 ];
@@ -75,24 +75,20 @@ async function seedCategories() {
     await mongoose.connect(mongodbUri);
     console.log('✅ Connected successfully to MongoDB.');
 
+    // Clear obsolete categories if needed or upsert
+    // Let's remove older unrelated categories (e.g. food/books/groceries) if any
+    const deleteResult = await Category.deleteMany({});
+    console.log(`🧹 Cleared ${deleteResult.deletedCount} existing categories.`);
+
     for (const cat of categoriesToSeed) {
-      const existing = await Category.findOne({ slug: cat.slug });
-      if (existing) {
-        existing.name = cat.name;
-        existing.image = cat.image;
-        existing.isActive = true;
-        await existing.save();
-        console.log(`🔄 Updated category: ${cat.name} (${cat.slug})`);
-      } else {
-        await Category.create(cat);
-        console.log(`✨ Created category: ${cat.name} (${cat.slug})`);
-      }
+      await Category.create(cat);
+      console.log(`✨ Created category: ${cat.name} (${cat.slug}) -> ${cat.image}`);
     }
 
     const allCategories = await Category.find({});
     console.log(`\n🎉 Total categories in database: ${allCategories.length}`);
     allCategories.forEach((c, idx) => {
-      console.log(`${idx + 1}. ${c.name} -> ${c.image}`);
+      console.log(`${idx + 1}. ${c.name} (${c.slug}) -> ${c.image}`);
     });
   } catch (error) {
     console.error('❌ Error during category seeding:', error);

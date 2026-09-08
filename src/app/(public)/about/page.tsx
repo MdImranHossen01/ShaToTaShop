@@ -7,7 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const storeName = process.env.NEXT_PUBLIC_STORE_NAME || 'Store';
   return {
     title: `About Us | ${storeName}`,
-    description: `Learn more about ${storeName}, our quality standards, customer dedication, and journey in the industry.`,
+    description: `Discover ${storeName} - Bangladesh's ultimate destination for authentic electronic gadgets, smart wearables, audio gear, and fashion tech accessories.`,
   };
 }
 

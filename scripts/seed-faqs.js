@@ -39,35 +39,35 @@ const FAQ = mongoose.models.FAQ || mongoose.model('FAQ', FAQSchema);
 
 const faqs = [
   {
-    question: 'What types of products are available at Bhoot Bazar?',
-    answer: 'Bhoot Bazar is a curated multi-category lifestyle e-commerce platform offering premium fashion & apparel, health & botanical beauty care, books & indoor flora, smart electronics & security gadgets, and artisanal bakery & gourmet grocery essentials.',
+    question: 'Are all electronic gadgets and smart devices authentic and backed by warranty?',
+    answer: 'Yes, 100% of our electronic gadgets, smart wearables, and tech accessories are genuine and sourced directly from authorized brand distributors. All eligible products come with official manufacturer warranty coverage.',
     order: 1,
     isActive: true,
   },
   {
-    question: 'How long does nationwide delivery take?',
-    answer: 'Orders within Dhaka are typically delivered within 24 to 48 hours. For deliveries outside Dhaka across Bangladesh, standard delivery takes 3 to 5 business days with real-time tracking support.',
+    question: 'What is your nationwide delivery timeframe and shipping coverage?',
+    answer: 'We provide express delivery across Dhaka within 24 to 48 hours and reliable courier shipping to all 64 districts in Bangladesh within 2 to 4 business days. Safe, shockproof packaging and tracking are included with every shipment.',
     order: 2,
     isActive: true,
   },
   {
-    question: 'What payment methods do you support?',
-    answer: 'We provide seamless Cash on Delivery (COD) as well as secure online payments via bKash, Nagad, Rocket, credit/debit cards, and mobile banking gateways.',
+    question: 'What payment methods are accepted for orders?',
+    answer: 'We accept Cash on Delivery (COD) across Bangladesh as well as seamless digital payments via bKash, Nagad, Visa, Mastercard, and major mobile banking gateways.',
     order: 3,
     isActive: true,
   },
   {
-    question: 'What is your return and exchange policy?',
-    answer: 'We offer a hassle-free 7-day return and exchange policy. If you receive a damaged, defective, or incorrect item, simply contact our support team with your order ID for a prompt resolution.',
+    question: 'What is your replacement policy if I receive a defective gadget or wrong size apparel?',
+    answer: 'We offer an easy 7-day replacement guarantee. If you encounter any technical defect, physical damage during transit, or sizing issue with fashion wear, simply contact our support team with your order ID for a swift exchange.',
     order: 4,
     isActive: true,
   },
   {
-    question: 'How can I get in touch with customer support?',
-    answer: 'Our customer care team is available 24/7. You can reach out directly via WhatsApp at +8801521100827, call our helpline, or use the live AI assistant on our website.',
+    question: 'How can I track my order or contact customer care?',
+    answer: 'You can track your order status in real time directly on our website using your order ID or phone number. For instant customer care, chat with our 24/7 AI Assistant or reach out via WhatsApp at +8801581680540.',
     order: 5,
     isActive: true,
-  }
+  },
 ];
 
 async function seed() {
